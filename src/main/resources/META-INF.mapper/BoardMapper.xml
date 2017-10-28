@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.han.repositories.BoardMapper">
+    <select id="list" resultType="com.han.models.Board">
+        SELECT id, title, contents
+        , created_at as createdAt
+        , created_id as createdId
+        FROM borders
+        ORDER BY id DESC
+        LIMIT #{offset}, #{size}
+    </select>
+    <insert id="add">
+        INSERT INTO borders (title, contents, use_yn ,created_at, created_id)
+        VALUES(#{title}, #{contents}, #{use_yn}, #{created_at}, #{created_id})
+    </insert>
+</mapper>
