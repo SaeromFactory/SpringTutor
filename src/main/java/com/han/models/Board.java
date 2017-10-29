@@ -17,6 +17,8 @@ public class Board {
     private String useYn;
     private Timestamp createdAt;
     private String createdId;
+    private Timestamp updatedAt;
+    private String updatedId;
 
     public Long getId() {
         return id;
@@ -64,5 +66,21 @@ public class Board {
 
     public void setUseYn(String useYn) {
         this.useYn = useYn;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getUpdatedId() {
+        return updatedId;
+    }
+
+    public void setUpdatedId(String updatedId) {
+        this.updatedId = updatedId;
     }
 }
