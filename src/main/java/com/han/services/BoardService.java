@@ -1,7 +1,9 @@
 package com.han.services;
 
+import com.han.common.annotation.AspectPrograming;
 import com.han.models.Board;
 import com.han.repositories.BoardMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,7 @@ import java.util.Map;
 @Service는 처음에 빌드를 할때 스프링에 객체를 등록하기위해 사용합니다.
  */
 @Service
+@Slf4j
 public class BoardService {
     @Autowired private BoardMapper boardMapper;
 

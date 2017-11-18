@@ -83,4 +83,18 @@ public class Board {
     public void setUpdatedId(String updatedId) {
         this.updatedId = updatedId;
     }
+
+    @Override
+    public String toString() {
+        return "Board{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", contents='" + contents + '\'' +
+                ", useYn='" + useYn + '\'' +
+                ", createdAt=" + createdAt +
+                ", createdId='" + createdId + '\'' +
+                ", updatedAt=" + updatedAt +
+                ", updatedId='" + updatedId + '\'' +
+                '}';
+    }
 }

@@ -30,6 +30,11 @@ public class CommonResponse<T> {
         this.data = data;
     }
 
+    public CommonResponse(T data, String msg) {
+        this.data = data;
+        this.msg = msg;
+    }
+
     public String getStatus() {
         return status;
     }

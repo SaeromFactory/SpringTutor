@@ -5,12 +5,12 @@
         SELECT id, title, contents
         , created_at as createdAt
         , created_id as createdId
-        FROM borders
+        FROM boards
         ORDER BY id DESC
         LIMIT #{offset}, #{size}
     </select>
     <insert id="add">
-        INSERT INTO borders (title, contents, use_yn ,created_at, created_id)
+        INSERT INTO boards (title, contents, use_yn ,created_at, created_id)
         VALUES(#{title}, #{contents}, #{use_yn}, #{created_at}, #{created_id})
     </insert>
 </mapper>

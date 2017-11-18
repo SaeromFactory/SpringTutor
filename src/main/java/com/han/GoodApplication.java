@@ -1,11 +1,15 @@
 package com.han;
 
 import com.han.common.DBProperties;
+import com.han.common.Interceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /*
 스프링게시판 서버 완벽 가이드 ㅋㅋㅋ
@@ -18,7 +22,7 @@ model은 위의 레이어간에 데이터를 이동시키기위해 사용합니�
 @SpringBootApplication
 @PropertySources(value = @PropertySource("classpath:application.properties"))
 @EnableConfigurationProperties({DBProperties.class})
-public class GoodApplication {
+public class GoodApplication extends WebMvcConfigurerAdapter {
 
 	/*
 	자바 공부를 해보신분 이시라면 main에 staitc이 왜붙는지 고민해보는것도 좋을것 같아요!
@@ -26,4 +30,15 @@ public class GoodApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GoodApplication.class, args);
 	}
+
+	@Bean
+	public Interceptor maradoAdminInterceptor() {
+		return new Interceptor();
+	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(maradoAdminInterceptor());
+	}
+
 }
