@@ -20,7 +20,8 @@ public class UserService {
 
     *힌트는 파라미터의 user에 다가 setToken해서 토큰값을 너으면 되요.
     암호화 방법은 랜덤값으로 만들어도 되고, 조금 더 공부를 하고 싶다면
-    RSA 나 그외의 암호를 사용하는 함수를 하나 만들어서 암호화는 것도 괜찮은 것 같아요!
+    RSA 나 SHA 등등 그외의 암호를 사용하는 함수를 하나 만들어서 암호화는 것도 괜찮은 것 같아요!
+    (위의 암호화 알고리즘은 구글에 검색해서 복붙 하시면 됩니당)
      */
 
     public CommonResponse login(User user){
