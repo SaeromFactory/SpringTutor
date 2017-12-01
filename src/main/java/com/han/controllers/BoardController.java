@@ -1,11 +1,8 @@
 package com.han.controllers;
 
-import com.han.common.annotation.InterceptorPost;
-import com.han.common.annotation.InterceptorPre;
 import com.han.models.Board;
 import com.han.models.CommonResponse;
 import com.han.services.BoardService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +25,6 @@ response 데이터를 Json데이터로 변경하여 반환 해줍니당
  */
 @RequestMapping("boards")
 @RestController
-@Slf4j
 public class BoardController {
 
     /*
