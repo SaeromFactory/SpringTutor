@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.han.repository.BoardMapper">
+    <select id="list" resultType="com.watchers.model.Board">
+        SELECT id, title, contents
+        , created_at as createdAt
+        , created_id as createdId
+        FROM boards
+        ORDER BY id DESC
+        LIMIT #{offset}, #{size}
+    </select>
+    <insert id="add">
+        INSERT INTO boards (title, contents, use_yn ,created_at, created_id)
+        VALUES(#{title}, #{contents}, #{use_yn}, now(), #{created_id})
+    </insert>
+    <update id="set">
+        UPDATE boards
+        SET
+            title = #{title}
+            ,contents = #{contents}
+            ,updated_id = #{updated_id}
+            ,updated_at = now()
+        WHERE id = #{id}
+    </update>
+    <delete id="del">
+        DELETE
+        FROM boards
+        WHERE idx = #{idx}
+    </delete>
+    <select id="search_id">
+        SELECT COUNT(*)
+        FROM boards b, user u
+        // include 태그 삽입 : 연결
+        <include refid="search"></include>
+    </select>
+
+    <sql id="search">
+        WHERE b.id = u.id
+    </sql>
+
+    <select id="view">
+        SELECT *
+        FROM boards
+        WHERE idx=#{idx}
+    </select>
+
+</mapper>
